@@ -49,7 +49,7 @@ function map_update(map)
     for x=0,(map.X)-1 do
         for y=0,(map.Y)-1 do
             id = map.map[y+1][x+1]
-            map.spriteBatch:addq(map.tile[id], x*map.LX, y*map.LY)
+            map.spriteBatch:add(map.tile[id], x*map.LX, y*map.LY)
         end
     end
 

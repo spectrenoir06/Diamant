@@ -13,9 +13,9 @@ function printinfo(move)
 end
 function printinfosprite()
     if move==false then  
-        love.graphics.drawq( gamemap.tiles, gamemap.tile[scanID(gamemap,persoX,persoY,0)], 1056, 120)
-        love.graphics.drawq( gamemap.tiles, gamemap.tile[scanID(gamemap,persoX,persoY,direction)], 1056, 184)
-        love.graphics.drawq( gamemap.tiles, gamemap.tile[scanIDplus(gamemap,persoX,persoY,direction)], 1056, 248)
+        love.graphics.draw( gamemap.tiles, gamemap.tile[scanID(gamemap,persoX,persoY,0)], 1056, 120)
+        love.graphics.draw( gamemap.tiles, gamemap.tile[scanID(gamemap,persoX,persoY,direction)], 1056, 184)
+        love.graphics.draw( gamemap.tiles, gamemap.tile[scanIDplus(gamemap,persoX,persoY,direction)], 1056, 248)
         love.graphics.print(scanID(gamemap,persoX,persoY,0),1030,152)
         love.graphics.print(scanID(gamemap,persoX,persoY,direction),1030,216)
         love.graphics.print(scanIDplus(gamemap,persoX,persoY,direction),1030,280)

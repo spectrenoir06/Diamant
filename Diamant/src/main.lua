@@ -31,7 +31,7 @@ end
 --]]
     
 function love.load()
-    love.graphics.toggleFullscreen( )
+
     monde1=love.graphics.newImage( "/textures/textures1/Menu/menu_monde1.png" )
     monde2=love.graphics.newImage( "/textures/textures1/Menu/menu_monde2.png" )
     monde3=love.graphics.newImage( "/textures/textures1/Menu/menu_monde3.png" )
@@ -52,7 +52,6 @@ function love.load()
     texturepack=1
     niveau=1
     perso=sprite_new("/textures/Perso1/sprite.png",64,80)
-    love.graphics.setMode( 1024, 768)
     info=false
     wall = {}
     wall[2] = true  -- Dalles
@@ -72,7 +71,6 @@ end
 
 
 function love.draw()
-    love.graphics.setIcon(icone)
     
     if mode=="play" then
         map_draw(0,0,gamemap)
@@ -200,10 +198,10 @@ function love.keypressed(key)
             elseif key=="f2" then
                 if info==true then
                     info=false
-                    love.graphics.setMode( 1024, 768)
+                    love.window.setMode( 1024, 768)
                 else 
                     info=true
-                    love.graphics.setMode( 1120, 768)
+                    love.window.setMode( 1120, 768)
                 end
             end
         end

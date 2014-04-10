@@ -18,5 +18,5 @@ function sprite_new(fichier,LX,LY)
 end
 
 function sprite_draw(x,y,sprite,frame)
-    love.graphics.drawq(sprite.img,sprite.frame[frame],x,y)
+    love.graphics.draw(sprite.img,sprite.frame[frame],x,y)
 end
