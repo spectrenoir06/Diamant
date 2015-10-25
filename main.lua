@@ -77,8 +77,8 @@ end
 function love.draw()
 
 	if mode=="play" then
-		map_draw(0,0,gamemap)
-		sprite_draw(persoX,persoY-6*4,perso,direction)
+		map_draw(128,0,gamemap)
+		sprite_draw(persoX + 128,persoY-6*4,perso,direction)
 		if info==true then
 			printinfo()
 			printinfosprite(map,X,Y,direction)
@@ -86,9 +86,9 @@ function love.draw()
 
 	elseif mode=="start" then
 		love.graphics.draw( menuscreen, 0, 0)
-		button_draw(10,290,monde1)
-		button_draw(350,290,monde2)
-		button_draw(700,290,monde3)
+		button_draw(10 + 128 - 42,245,monde1)
+		button_draw(350 + 128,245,monde2)
+		button_draw(700 + 128 + 42,245,monde3)
 		if cursor then
 			love.graphics.print( cursorX.." ; "..cursorY, cursorX, cursorY)
 		end
@@ -162,18 +162,19 @@ function love.update(dt)
 
 end
 
+
 function love.mousepressed(x, y, button)
 
 	if mode=="start" then
-		if button_press(10,290,monde1,x,y,button) then
+		if button_press(10 + 128 - 42, 245, monde1,x,y,button) then
 			niveau=1
 			monde=1
 			mode="launchgame"
-		elseif button_press(350,290,monde1,x,y,button) then
+		elseif button_press(350 + 128, 245, monde1,x,y,button) then
 			niveau=1
 			mode="launchgame"
 			monde=2
-		elseif button_press(700,290,monde1,x,y,button) then
+		elseif button_press(700 + 128 + 42, 245, monde1,x,y,button) then
 			niveau=1
 			monde=3
 			mode="launchgame"
@@ -202,10 +203,10 @@ function love.keypressed(key)
 			elseif key=="f2" then
 				if info==true then
 					info=false
-					love.window.setMode( 1024, 768)
+					--love.window.setMode( 1280, 720)
 				else
 					info=true
-					love.window.setMode( 1120, 768)
+					--love.window.setMode( 1120, 768)
 				end
 			end
 		end
