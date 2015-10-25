@@ -210,7 +210,17 @@ function love.keypressed(key)
 				end
 			end
 		end
+		if (key == "q") then
+			mode = "start"
+		end
 	end
 
 
+end
+
+function love.joystickpressed(joystick, key)
+
+	if mode=="play" and key == 7 then
+		mode ="start"
+	end
 end
