@@ -63,6 +63,10 @@ function love.load()
 	wall[7] = true -- Spawn
 	wall[8] = false -- Mur
 	wall[9] = false --sol rugeu
+
+	joysticks = love.joystick.getJoysticks( )
+	joy = joysticks[1]
+
 end
 
 
@@ -94,29 +98,29 @@ end
 function love.update(dt)
 	if mode=="play" then
 		if move==false then
-			if love.keyboard.isDown( " " ) then
+			if (love.keyboard.isDown( " " ) or (joy and joy:isDown(1))) then
 				score=pousser(gamemap,persoX,persoY,direction,score)
-			elseif love.keyboard.isDown( "up" ) and direction==1 and scanCol(gamemap,persoX,persoY,direction,wall) then
+			elseif (love.keyboard.isDown( "up" ) or (joy and joy:isDown(12))) and direction==1 and scanCol(gamemap,persoX,persoY,direction,wall) then
 				pixel=0
 				move=true
-			elseif love.keyboard.isDown( "down" ) and direction==2 and scanCol(gamemap,persoX,persoY,direction,wall) then
+			elseif (love.keyboard.isDown( "down" ) or (joy and joy:isDown(13))) and direction==2 and scanCol(gamemap,persoX,persoY,direction,wall) then
 				pixel=0
 				move=true
-			elseif love.keyboard.isDown( "left" ) and direction==3 and scanCol(gamemap,persoX,persoY,direction,wall)  then
+			elseif (love.keyboard.isDown( "left" ) or (joy and joy:isDown(14))) and direction==3 and scanCol(gamemap,persoX,persoY,direction,wall)  then
 				pixel=0
 				move=true
-			elseif love.keyboard.isDown( "right" ) and direction==4 and scanCol(gamemap,persoX,persoY,direction,wall)  then
+			elseif (love.keyboard.isDown( "right" ) or (joy and joy:isDown(15))) and direction==4 and scanCol(gamemap,persoX,persoY,direction,wall)  then
 				pixel=0
 				move=true
-			elseif love.keyboard.isDown( "up" ) then
+			elseif (love.keyboard.isDown( "up" ) or (joy and joy:isDown(12))) then
 				direction=1
-			elseif love.keyboard.isDown( "down" ) then
+			elseif (love.keyboard.isDown( "down" ) or (joy and joy:isDown(13))) then
 				direction=2
-			elseif love.keyboard.isDown( "left" ) then
+			elseif (love.keyboard.isDown( "left" ) or (joy and joy:isDown(14))) then
 				direction=3
-			elseif love.keyboard.isDown( "right" ) then
+			elseif (love.keyboard.isDown( "right" ) or (joy and joy:isDown(15))) then
 				direction=4
-			elseif love.keyboard.isDown( "escape" ) then
+			elseif (love.keyboard.isDown( "escape" ) or (joy and joy:isDown(4))) then
 				map_reset(gamemap)
 				persoX,persoY=SetMapProp(gamemap)
 			elseif score==scorefinal  then
